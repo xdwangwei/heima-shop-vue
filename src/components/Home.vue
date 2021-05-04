@@ -1,10 +1,27 @@
 <!--  -->
 <template>
-    <div class="">
-        用户主页
-        <!-- 退出登录按钮 -->
-        <el-button type="info" @click="logout">退出</el-button>
-    </div>
+    <!-- 页面容器布局 -->
+    <el-container class="home-container">
+        <!-- 页面头部 -->
+        <el-header>
+            <div>
+                <!-- 头像 -->
+                <img
+                    src="../assets/logo.png"
+                    style="width: 50px; height: 50px"
+                />
+                <span>黑马商城后台管理系统</span>
+            </div>
+            <!-- 退出登录按钮 -->
+            <el-button type="info" @click="logout">退出</el-button>
+        </el-header>
+        <el-container>
+            <!-- 页面侧边栏 -->
+            <el-aside width="200px">Aside</el-aside>
+            <!-- 页面主体区域 -->
+            <el-main>Main</el-main>
+        </el-container>
+    </el-container>
 </template>
 
 <script>
@@ -27,10 +44,10 @@ export default {
         /* 退出登录按钮点击事件 */
         logout() {
             /* 清空jwt令牌 */
-            window.sessionStorage.clear()
+            window.sessionStorage.clear();
             /* 重新跳转到登录页面 */
-            this.$router.push('/login')
-        }
+            this.$router.push("/login");
+        },
     },
     //生命周期 - 创建完成（可以访问当前this实例）
     created() {},
@@ -47,4 +64,33 @@ export default {
 </script>
 <style lang='less' scoped>
 /* @import url(); 引入公共css类 */
+
+.home-container {
+    height: 100%;
+}
+
+.el-aside {
+    background-color: #333744;
+}
+
+.el-header {
+    background-color: #24242c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    color: white;
+    font-size: 20px;
+    > div {
+        display: flex;
+        align-items: center;
+        span {
+            margin-left: 15px;
+        }
+    }
+}
+
+.el-main {
+    background-color: #eaedf1;
+}
 </style>
