@@ -23,6 +23,7 @@ Vue.prototype.$http = axios
 /* 导入全局样式 */
 import './assets/css/global.css'
 
+
 Vue.config.productionTip = false
 
 new Vue({
